@@ -25,6 +25,8 @@ app.use(session({
 	saveUninitialized: false
 }));
 
+app.use('/users', usersController);
+
 var port = process.env.PORT || 3000;
 
 app.listen(port, function(){
