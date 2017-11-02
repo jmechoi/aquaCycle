@@ -13,7 +13,9 @@ var UserSchema = new Schema({
 	city: String,
 	state: String,
 	zipcode: Number,
-	password_digest: String
+	password_digest: String,
+	created_at: Date,
+	updated_at: Date
 });
 
 UserSchema.pre('save', function(next){

@@ -1,8 +1,8 @@
 var express = require('express');
 var logger = require('morgan');
 var session = require('express-session');
-var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 var sessionsController = require('./controllers/sessions.js');
 var usersController = require('./controllers/users.js');
 
@@ -11,6 +11,7 @@ var app = express();
 app.use(express.static('public'));
 
 var mongoURI = process.env.MONGODB_URI || "mongodb://localhost/aquacycle"
+mongoose.connect(mongoURI);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -26,6 +27,7 @@ app.use(session({
 }));
 
 app.use('/users', usersController);
+app.use('/sessions', sessionsController);
 
 var port = process.env.PORT || 3000;
 
