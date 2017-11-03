@@ -29,7 +29,7 @@ app.use(session({
 app.use('/users', usersController);
 app.use('/sessions', sessionsController);
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 4000;
 
 app.listen(port, function(){
 	console.log("Connected");
